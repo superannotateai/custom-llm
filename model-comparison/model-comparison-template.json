@@ -1,0 +1,137 @@
+{
+    "components": [
+        {
+            "type": "textarea",
+            "id": "prompt",
+            "label": "Prompt",
+            "placeholder": "Write a prompt here",
+            "isRequired": false,
+            "showError": false,
+            "value": ""
+        },
+        {
+            "type": "button",
+            "id": "button",
+            "text": "Generate",
+            "buttonType": "primary"
+        },
+        {
+            "type": "grid",
+            "id": "r_7ia3mu",
+            "columns": [
+                {
+                    "span": 12,
+                    "id": "r_xrilzo",
+                    "components": [
+                        {
+                            "type": "textarea",
+                            "id": "model1_res",
+                            "label": "Cohere",
+                            "placeholder": "Placeholder",
+                            "isRequired": false,
+                            "showError": false,
+                            "value": ""
+                        },
+                        {
+                            "type": "rating",
+                            "id": "r_6dkk8l",
+                            "label": "Rate the answer",
+                            "value": null,
+                            "numberOfStars": 5
+                        },
+                        {
+                            "type": "radio",
+                            "id": "r_sh3pla",
+                            "label": "Assess the completion's comprehensiveness.",
+                            "isRequired": false,
+                            "showError": false,
+                            "value": null,
+                            "options": [
+                                {
+                                    "value": "Complete",
+                                    "checked": false
+                                },
+                                {
+                                    "value": "Partially complete",
+                                    "checked": false
+                                },
+                                {
+                                    "value": "Incomplete",
+                                    "checked": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "span": 12,
+                    "id": "r_i16xx1",
+                    "components": [
+                        {
+                            "type": "textarea",
+                            "id": "model2_res",
+                            "label": "Open AI",
+                            "placeholder": "Placeholder",
+                            "isRequired": false,
+                            "showError": false,
+                            "value": ""
+                        },
+                        {
+                            "type": "rating",
+                            "id": "r_4g1tp9",
+                            "label": "Rate the answer",
+                            "value": null,
+                            "numberOfStars": 5
+                        },
+                        {
+                            "type": "radio",
+                            "id": "r_fza8ad",
+                            "label": "Assess the completion's comprehensiveness.",
+                            "isRequired": false,
+                            "showError": false,
+                            "value": null,
+                            "options": [
+                                {
+                                    "value": "Complete",
+                                    "checked": false
+                                },
+                                {
+                                    "value": "Partially complete",
+                                    "checked": false
+                                },
+                                {
+                                    "value": "Incomplete",
+                                    "checked": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "spanSum": 24
+        }
+    ],
+    "code": "from typing import List, Union\nfrom accessor import getValue, repeatRow, deleteRow, setValue, setLoading, getGroupLength\nfrom environments import open_ai_url, open_ai_api_key, cohere_url, cohere_api_key\nfrom pyodide.http import pyfetch, FetchResponse\nfrom typing import Optional, Any\nimport json\n\ninput_prompt = ['prompt']\nbutton_button = ['button']\ntextarea_model1_res = ['model1_res']\ntextarea_model2_res = ['model2_res']\n\nasync def on_button_click(path: List[Union[str, int]]):\n    setLoading(True)\n    prompt = getValue(input_prompt)\n    completionCohere = await cohereCompletion(prompt)\n    completionOpenAi = await openAiCompletion(prompt)\n    setValue(textarea_model1_res, completionCohere)\n    setValue(textarea_model2_res, completionOpenAi)\n    setLoading(False)\n    return\n\nasync def openAiCompletion(message: str):\n    questionBody = {\n        \"model\": \"gpt-4\",\n        \"messages\": [{\"role\": \"user\", \"content\": message}]\n    }\n\n    headers = {\n      \"Content-Type\": \"application/json\",\n      \"Authorization\": \"Bearer \" + open_ai_api_key\n    }\n\n    fetchedValue = await request(\n      open_ai_url,\n      \"POST\",\n      json.dumps(questionBody),\n      headers\n    )\n    res = await fetchedValue.json()  \n    answer = res[\"choices\"][0][\"message\"][\"content\"]\n    return answer\n\nasync def cohereCompletion(message: str):\n    questionBody = {\n        \"prompt\": message\n    }\n\n    headers = {\n      \"Content-Type\": \"application/json\",\n      \"Authorization\": \"Bearer \" + cohere_api_key\n    }\n\n    fetchedValue = await request(\n      cohere_url,\n      \"POST\",\n      json.dumps(questionBody),\n      headers\n    )\n    res = await fetchedValue.json()\n    answer = res[\"generations\"][0][\"text\"]\n    return answer\n\nasync def request(url: str, method: str = \"GET\", body: Optional[str] = None,\n                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:\n    kwargs = {\"method\": method, \"mode\": \"cors\"}  # CORS: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing\n    if body and method not in [\"GET\", \"HEAD\"]:\n        kwargs[\"body\"] = body\n    if headers:\n        kwargs[\"headers\"] = headers\n    kwargs.update(fetch_kwargs)\n\n    response = await pyfetch(url, **kwargs)\n    return response\n",
+    "environments": [
+        {
+            "name": "open_ai_url",
+            "value": "https://api.openai.com/v1/chat/completions",
+            "secure": false
+        },
+        {
+            "name": "open_ai_api_key",
+            "value": "<your OpenAI api key>",
+            "secure": true
+        },
+        {
+            "name": "cohere_url",
+            "value": "https://api.cohere.ai/v1/generate",
+            "secure": false
+        },
+        {
+            "name": "cohere_api_key",
+            "value": "<your Cohere api key>",
+            "secure": true
+        }
+    ]
+}

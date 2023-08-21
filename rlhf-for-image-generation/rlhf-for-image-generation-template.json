@@ -1,0 +1,208 @@
+{
+    "components": [
+        {
+            "type": "input",
+            "id": "prompt",
+            "label": "Prompt",
+            "placeholder": "Placeholder",
+            "isRequired": false,
+            "showError": false,
+            "value": ""
+        },
+        {
+            "type": "select",
+            "id": "style",
+            "label": "Style",
+            "placeholder": "Select",
+            "isRequired": false,
+            "showError": false,
+            "isMultiselect": false,
+            "value": null,
+            "options": [
+                {
+                    "value": "enhance",
+                    "checked": false
+                },
+                {
+                    "value": "anime",
+                    "checked": false
+                },
+                {
+                    "value": "photographic",
+                    "checked": false
+                },
+                {
+                    "value": "digital-art",
+                    "checked": false
+                },
+                {
+                    "value": "comic-book",
+                    "checked": false
+                },
+                {
+                    "value": "fantasy-art",
+                    "checked": false
+                },
+                {
+                    "value": "line-art",
+                    "checked": false
+                },
+                {
+                    "value": "analog-film",
+                    "checked": false
+                },
+                {
+                    "value": "neon-punk",
+                    "checked": false
+                },
+                {
+                    "value": "isometric",
+                    "checked": false
+                },
+                {
+                    "value": "low-poly",
+                    "checked": false
+                },
+                {
+                    "value": "origami",
+                    "checked": false
+                },
+                {
+                    "value": "modeling-compound",
+                    "checked": false
+                },
+                {
+                    "value": "cinematic",
+                    "checked": false
+                },
+                {
+                    "value": "3d-model",
+                    "checked": false
+                },
+                {
+                    "value": "pixel-art",
+                    "checked": false
+                },
+                {
+                    "value": "tile-texture",
+                    "checked": false
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "id": "generate",
+            "text": "Generate",
+            "buttonType": "primary"
+        },
+        {
+            "type": "grid",
+            "id": "r_3txnu2",
+            "columns": [
+                {
+                    "span": 12,
+                    "id": "r_wm6s0w",
+                    "components": [
+                        {
+                            "type": "image",
+                            "id": "img1",
+                            "label": "Image",
+                            "value": "/assets/placeholder.png",
+                            "alt": ""
+                        },
+                        {
+                            "type": "rating",
+                            "id": "r_a62775",
+                            "label": "Rating",
+                            "value": null,
+                            "numberOfStars": 5
+                        }
+                    ]
+                },
+                {
+                    "span": 12,
+                    "id": "r_dz87j4",
+                    "components": [
+                        {
+                            "type": "image",
+                            "id": "img2",
+                            "label": "Image",
+                            "value": "/assets/placeholder.png",
+                            "alt": ""
+                        },
+                        {
+                            "type": "rating",
+                            "id": "r_k5y6y2",
+                            "label": "Rating",
+                            "value": null,
+                            "numberOfStars": 5
+                        }
+                    ]
+                },
+                {
+                    "span": 12,
+                    "id": "r_l82iyo",
+                    "components": [
+                        {
+                            "type": "image",
+                            "id": "img3",
+                            "label": "Image",
+                            "value": "/assets/placeholder.png",
+                            "alt": ""
+                        },
+                        {
+                            "type": "rating",
+                            "id": "r_yrag97",
+                            "label": "Rating",
+                            "value": null,
+                            "numberOfStars": 5
+                        }
+                    ]
+                },
+                {
+                    "span": 12,
+                    "id": "r_tpffw2",
+                    "components": [
+                        {
+                            "type": "image",
+                            "id": "img4",
+                            "label": "Image",
+                            "value": "/assets/placeholder.png",
+                            "alt": ""
+                        },
+                        {
+                            "type": "rating",
+                            "id": "r_owo035",
+                            "label": "Rating",
+                            "value": null,
+                            "numberOfStars": 5
+                        }
+                    ]
+                }
+            ],
+            "spanSum": 24
+        },
+        {
+            "type": "textarea",
+            "id": "r_ru83fz",
+            "label": "Best Answer Reasons",
+            "placeholder": "Placeholder",
+            "isRequired": false,
+            "showError": false,
+            "value": ""
+        }
+    ],
+    "code": "from typing import List, Union\nfrom accessor import getValue, repeatRow, deleteRow, setValue, setLoading, getGroupLength\nfrom environments import url, key\nfrom pyodide.http import pyfetch, FetchResponse\nfrom typing import Optional, Any\nimport json\n\ninput_prompt = ['prompt']\nimage_img1 = ['img1']\nimage_img2 = ['img2']\nimage_img3 = ['img3']\nimage_img4 = ['img4']\nselect_style = ['style']\nbutton_generate = ['generate']\n\nasync def on_generate_click(path: List[Union[str, int]]):\n    setLoading(True)\n    prompt = getValue(input_prompt)\n    style = getValue(select_style)\n    images = await generateImage(prompt, style)\n    for index in range(4):\n        setValue([\"img\"+str(index+1)], \"data:image/png;base64,\"+images[index][\"base64\"])\n    setLoading(False)\n    return\n\nasync def generateImage(prompt: str, style: str= \"enhance\"):\n    questionBody = {\n        \"text_prompts\": [\n            {\n                \"text\": prompt\n            }\n        ],\n        \"samples\": 4,\n        \"cfg_scale\": 16,\n        \"style_preset\": style\n        \n    }\n\n    headers = {\n      \"Content-Type\": \"application/json\",\n      \"Authorization\": \"Bearer \" + key\n    }\n\n    fetchedValue = await request(\n      url,\n      \"POST\",\n      json.dumps(questionBody),\n      headers\n    )\n    res = await fetchedValue.json()  \n    images = res[\"artifacts\"]\n    return images\n\nasync def request(url: str, method: str = \"GET\", body: Optional[str] = None,\n                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:\n    kwargs = {\"method\": method, \"mode\": \"cors\"}  # CORS: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing\n    if body and method not in [\"GET\", \"HEAD\"]:\n        kwargs[\"body\"] = body\n    if headers:\n        kwargs[\"headers\"] = headers\n    kwargs.update(fetch_kwargs)\n\n    response = await pyfetch(url, **kwargs)\n    return response\n\ndef on_style_change(path: List[Union[str, int]], value):\n    # The path is a list of strings and integers, the length of which is always an odd number and not less than 1.\n    # The last value is the identifier of the form element and the pairs preceding it are\n    # the group identifiers and the subgroup index, respectively\n    # value is current value of the form element\n\n    # there must be your code\n    return\n",
+    "environments": [
+        {
+            "name": "url",
+            "value": "https://api.stability.ai/v1/generation/stable-diffusion-v1-5/text-to-image",
+            "secure": false
+        },
+        {
+            "name": "key",
+            "value": "<your stability ai api token>",
+            "secure": true
+        }
+    ]
+}

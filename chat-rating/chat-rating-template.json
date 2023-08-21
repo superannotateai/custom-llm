@@ -1,0 +1,245 @@
+{
+    "components": [
+        {
+            "type": "grid",
+            "id": "r_i5cu0w",
+            "columns": [
+                {
+                    "span": 5,
+                    "id": "r_5t4qzj",
+                    "components": [
+                        {
+                            "type": "select",
+                            "id": "model_id",
+                            "label": "Select OpenIA Model",
+                            "placeholder": "Select a model ...",
+                            "isRequired": true,
+                            "showError": false,
+                            "isMultiselect": false,
+                            "value": null,
+                            "options": [
+                                {
+                                    "value": "gpt-4",
+                                    "checked": false
+                                },
+                                {
+                                    "value": "gpt-3.5-turbo",
+                                    "checked": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "span": 12,
+                    "id": "r_nhjo5i",
+                    "components": []
+                }
+            ],
+            "spanSum": 17
+        },
+        {
+            "type": "grid",
+            "id": "input_container",
+            "columns": [
+                {
+                    "span": 12,
+                    "id": "r_kp4ykc",
+                    "components": [
+                        {
+                            "type": "textarea",
+                            "id": "question_input",
+                            "label": "",
+                            "placeholder": "Type your question",
+                            "isRequired": false,
+                            "showError": false,
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "span": 3,
+                    "id": "r_m4q8y9",
+                    "components": [
+                        {
+                            "type": "button",
+                            "id": "question_submit",
+                            "text": "Submit",
+                            "buttonType": "primary"
+                        }
+                    ]
+                }
+            ],
+            "spanSum": 15
+        },
+        {
+            "type": "group",
+            "id": "convo_group",
+            "index": 0,
+            "deletable": true,
+            "isTemplate": true,
+            "components": [
+                {
+                    "type": "paragraph",
+                    "id": "used_model_name",
+                    "label": "Used Model",
+                    "value": ""
+                },
+                {
+                    "type": "grid",
+                    "id": "convo_question_row",
+                    "columns": [
+                        {
+                            "span": 2,
+                            "id": "r_85qxs5",
+                            "components": [
+                                {
+                                    "type": "avatar",
+                                    "id": "convo_question_avatar",
+                                    "value": null,
+                                    "alt": ""
+                                }
+                            ]
+                        },
+                        {
+                            "span": 13,
+                            "id": "r_he08dp",
+                            "components": [
+                                {
+                                    "type": "paragraph",
+                                    "id": "convo_question_text",
+                                    "label": "",
+                                    "value": "Your question text"
+                                }
+                            ]
+                        },
+                        {
+                            "span": 4,
+                            "id": "r_xr8qhs",
+                            "components": [
+                                {
+                                    "type": "rating",
+                                    "id": "convo_question_rating",
+                                    "label": "Rate the prompt",
+                                    "value": null,
+                                    "numberOfStars": 5
+                                },
+                                {
+                                    "type": "select",
+                                    "id": "convo_question_select",
+                                    "label": "",
+                                    "placeholder": "Select",
+                                    "isRequired": false,
+                                    "showError": false,
+                                    "isMultiselect": false,
+                                    "value": null,
+                                    "options": [
+                                        {
+                                            "value": "Option 1",
+                                            "checked": false
+                                        },
+                                        {
+                                            "value": "Option 2",
+                                            "checked": false
+                                        },
+                                        {
+                                            "value": "Option 3",
+                                            "checked": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "spanSum": 19
+                },
+                {
+                    "type": "grid",
+                    "id": "convo_answer_row",
+                    "columns": [
+                        {
+                            "span": 2,
+                            "id": "r_d46i9p",
+                            "components": []
+                        },
+                        {
+                            "span": 2,
+                            "id": "r_7jf3i5",
+                            "components": [
+                                {
+                                    "type": "avatar",
+                                    "id": "convo_answer_avatar",
+                                    "value": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+                                    "alt": ""
+                                }
+                            ]
+                        },
+                        {
+                            "span": 13,
+                            "id": "r_ex30ak",
+                            "components": [
+                                {
+                                    "type": "paragraph",
+                                    "id": "convo_answer_text",
+                                    "label": "",
+                                    "value": "Your question text"
+                                }
+                            ]
+                        },
+                        {
+                            "span": 4,
+                            "id": "r_kzhimk",
+                            "components": [
+                                {
+                                    "type": "rating",
+                                    "id": "convo_answer_rating",
+                                    "label": "Rate the answer",
+                                    "value": null,
+                                    "numberOfStars": 5
+                                },
+                                {
+                                    "type": "select",
+                                    "id": "convo_answer_select",
+                                    "label": "",
+                                    "placeholder": "Select",
+                                    "isRequired": false,
+                                    "showError": false,
+                                    "isMultiselect": false,
+                                    "value": null,
+                                    "options": [
+                                        {
+                                            "value": "Option 1",
+                                            "checked": false
+                                        },
+                                        {
+                                            "value": "Option 2",
+                                            "checked": false
+                                        },
+                                        {
+                                            "value": "Option 3",
+                                            "checked": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "spanSum": 21
+                }
+            ]
+        }
+    ],
+    "code": "from typing import List, Union\nfrom accessor import getValue, repeatRow, deleteRow, setValue, setLoading, getGroupLength\nfrom environments import url, open_ai_api_key\nfrom pyodide.http import pyfetch, FetchResponse\nfrom typing import Optional, Any\nimport json\n\ntextarea_question_input = ['question_input']\nbutton_question_submit = ['question_submit']\navatar_convo_question_avatar = ['convo_group', 0, 'convo_question_avatar']\nparagraph_convo_question_text = ['convo_group', 0, 'convo_question_text']\nrating_convo_question_rating = ['convo_group', 0, 'convo_question_rating']\nselect_convo_question_select = ['convo_group', 0, 'convo_question_select']\navatar_convo_answer_avatar = ['convo_group', 0, 'convo_answer_avatar']\nparagraph_convo_answer_text = ['convo_group', 0, 'convo_answer_text']\nrating_convo_answer_rating = ['convo_group', 0, 'convo_answer_rating']\nselect_convo_answer_select = ['convo_group', 0, 'convo_answer_select']\n\nselect_model_id = ['model_id']\nmodel_name = \"\"\n\nparagraph_used_model_name = ['convo_group', 0, 'used_model_name']\n\ndef on_question_input_change(path: List[Union[str, int]], value):\n    return\n\nasync def on_question_submit_click(path: List[Union[str, int]]):\n    questionText = getValue(textarea_question_input)\n    model_name = getValue(select_model_id)\n    \n    if not questionText:\n      return\n    \n    print(model_name)\n    \n    if not model_name:\n      return\n\n    setLoading(True)\n    repeatRow(['convo_group'])\n    setValue(['convo_group', -1, 'convo_question_text'], questionText)\n    setValue(['convo_group', -1, 'convo_question_rating'], 0)\n    setValue(['convo_group', -1, 'convo_question_select'], None)\n    \n    setValue(['convo_group', -1, 'convo_answer_text'], \"Generating an answer ....\")\n    setValue(['convo_group', -1, 'convo_answer_rating'], 0)\n    setValue(['convo_group', -1, 'convo_answer_select'], None)\n\n    questionBody = {\n        \"model\": \"gpt-4\",\n        \"messages\": [{\"role\": \"user\", \"content\": questionText}]\n    }\n\n    headers = {\n      \"Content-Type\": \"application/json\",\n      \"Authorization\": \"Bearer \" + open_ai_api_key\n    }\n\n    fetchedValue = await request(\n      url,\n      \"POST\",\n      json.dumps(questionBody),\n      headers\n    )\n    res = await fetchedValue.json()  \n    answer = res[\"choices\"][0][\"message\"][\"content\"]\n    setValue(['convo_group', -1, 'convo_answer_text'], answer)\n    setValue(textarea_question_input, \"\")\n    setValue(['convo_group', -1, 'used_model_name'], res[\"model\"])\n    setLoading(False)\n    return\n\ndef on_model_id_change(path: List[Union[str, int]], value):\n    return\n\nasync def request(url: str, method: str = \"GET\", body: Optional[str] = None,\n                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:\n    kwargs = {\"method\": method, \"mode\": \"cors\"}  # CORS: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing\n    if body and method not in [\"GET\", \"HEAD\"]:\n        kwargs[\"body\"] = body\n    if headers:\n        kwargs[\"headers\"] = headers\n    kwargs.update(fetch_kwargs)\n\n    response = await pyfetch(url, **kwargs)\n    return response\n",
+    "environments": [
+        {
+            "name": "url",
+            "value": "https://api.openai.com/v1/chat/completions",
+            "secure": false
+        },
+        {
+            "name": "open_ai_api_key",
+            "value": "<OpenAI api key>",
+            "secure": true
+        }
+    ]
+}
