@@ -1,5 +1,4 @@
 # custom-llm
-Custom templates for SuperAnnotate Custom LLM projects
 ## Custom templates for SuperAnnotate Custom LLM projects
 
 Welcome to SuperAnnotate’s LLM Annotation Tool! This custom editor is designed to cover a wide range of LLM use cases, providing top-notch data governance, security, customizability, data curation and many more. Try out diverse LLM experiments in just a few seconds without any complications, integrate the tool with your custom API and enjoy the journey!
