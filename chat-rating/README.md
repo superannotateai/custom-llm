@@ -4,9 +4,9 @@ Chat rating system is a rapidly evolving hot thing now for a few reasons. When u
 It’s so simple -- by having chat annotation system, you’ll assure continuously better responses from the chat and more advanced prompts over time.
 
 
-## Chat usecase
+### Chat usecase
 https://github.com/superannotateai/custom-llm/assets/142802256/476a3d8a-17b6-4429-839d-420827ab4785
 
-## Annotate chat
+### Annotate chat
 https://github.com/superannotateai/custom-llm/assets/142802256/97c251be-65e6-4f93-a2e4-f6978a1eface
 
