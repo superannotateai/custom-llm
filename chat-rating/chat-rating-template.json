@@ -54,6 +54,9 @@
                             "isRequired": false,
                             "showError": false,
                             "value": ""
+                            "min": 0,
+                            "invalid": false,
+                            "max": 1024
                         }
                     ]
                 },
