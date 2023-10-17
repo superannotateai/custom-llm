@@ -115,7 +115,7 @@
     "environments": [
         {
             "name": "url",
-            "value": "https://generative.devsuperannotate.com/generate",
+            "value": "https://generative.superannotate.com/generate",
             "secure": false
         }
     ]
