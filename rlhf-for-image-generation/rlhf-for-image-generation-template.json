@@ -189,14 +189,17 @@
             "placeholder": "Placeholder",
             "isRequired": false,
             "showError": false,
-            "value": ""
+            "value": "",
+            "min": 0,
+            "invalid": false,
+            "max": 1024
         }
     ],
     "code": "### Libraries\nfrom typing import List, Union\nfrom accessor import (\n    getValue,\n    setValue,\n    setLoading\n)\nfrom environments import url\nimport requests.asyncs as requests\n\n### UI Components\ninput_prompt = ['prompt']\nimage_img1 = ['img1']\nimage_img2 = ['img2']\nimage_img3 = ['img3']\nimage_img4 = ['img4']\nselect_style = ['style']\nbutton_generate = ['generate']\n\n### Generate button event handler\nasync def on_generate_click(path: List[Union[str, int]]):\n    ### Start loading\n    setLoading(True)\n\n    ### Get values\n    prompt = getValue(input_prompt)\n    style = getValue(select_style)\n\n    ### Generate images\n    images = await generateImage(prompt, style)\n\n    ### Set values\n    for index in range(4):\n        setValue([\"img\"+str(index+1)], \"data:image/png;base64,\"+images[index][\"base64\"])\n    \n    ### Remove loading\n    setLoading(False)\n    return\n\n### StabilityAI Image Generation\nasync def generateImage(prompt: str, style: str= \"enhance\"):\n    ### Create request body\n    questionBody = {\n        \"text_prompts\": [\n            {\n                \"text\": prompt\n            }\n        ],\n        \"samples\": 4,\n        \"cfg_scale\": 16,\n        \"style_preset\": style,\n        \"image\": True\n    }\n\n    ### Create headers object\n    headers = {\n      \"Content-Type\": \"application/json\"\n    }\n\n    ### Send the request\n    fetchedValue = await requests.post(\n      url,\n      json=questionBody,\n      headers=headers\n    )\n\n    ### Parse the response\n    res = fetchedValue.json()\n\n    ### Get generated images\n    images = res[\"artifacts\"]\n    return images",
     "environments": [
         {
             "name": "url",
-            "value": "https://generative.devsuperannotate.com/generate",
+            "value": "https://generative.superannotate.com/generate",
             "secure": false
         }
     ]
