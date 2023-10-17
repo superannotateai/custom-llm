@@ -1,10 +1,13 @@
 ### Libraries
 from typing import List, Union
-from accessor import getValue, repeatRow, deleteRow, setValue, setLoading, getGroupLength
-from environments import url, open_ai_api_key
-from pyodide.http import pyfetch, FetchResponse
-from typing import Optional, Any
-import json
+from accessor import (
+    getValue,
+    repeatRow,
+    setValue,
+    setLoading
+)
+from environments import url
+import requests.asyncs as request_async
 
 ### UI Components
 textarea_question_input = ['question_input']
@@ -49,26 +52,24 @@ async def on_question_submit_click(path: List[Union[str, int]]):
 
     ### Create OpenAI request body
     questionBody = {
-        "model": "gpt-4",
+        "model": model_name,
         "messages": [{"role": "user", "content": questionText}]
     }
 
     ### Create OpenAI headers object
     headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + open_ai_api_key
+      "Content-Type": "application/json"
     }
 
     ### Send the request
-    fetchedValue = await request(
+    fetchedValue = await request_async.post(
       url,
-      "POST",
-      json.dumps(questionBody),
-      headers
+      json=questionBody,
+      headers=headers
     )
 
     ### Parse the response
-    res = await fetchedValue.json()
+    res = fetchedValue.json()
 
     ### Get the completion
     answer = res["choices"][0]["message"]["content"]
@@ -83,16 +84,3 @@ async def on_question_submit_click(path: List[Union[str, int]]):
     ### Remove the loading
     setLoading(False)
     return
-
-### HTTP Request Function
-async def request(url: str, method: str = "GET", body: Optional[str] = None,
-                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:
-    kwargs = {"method": method, "mode": "cors"}
-    if body and method not in ["GET", "HEAD"]:
-        kwargs["body"] = body
-    if headers:
-        kwargs["headers"] = headers
-    kwargs.update(fetch_kwargs)
-
-    response = await pyfetch(url, **kwargs)
-    return response

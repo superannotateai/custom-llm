@@ -1,10 +1,12 @@
 ### Libraries 
 from typing import List, Union
-from accessor import getValue, repeatRow, deleteRow, setValue, setLoading, getGroupLength
-from environments import open_ai_url, open_ai_api_key, cohere_url, cohere_api_key
-from pyodide.http import pyfetch, FetchResponse
-from typing import Optional, Any
-import json
+from accessor import (
+    getValue,
+    setValue,
+    setLoading
+)
+from environments import url
+import requests.asyncs as requests
 
 ### UI Components
 input_prompt = ['prompt']
@@ -36,26 +38,24 @@ async def on_button_click(path: List[Union[str, int]]):
 async def openAiCompletion(message: str):
     ### Create OpenAI request body
     questionBody = {
-        "model": "gpt-4",
+        "model": "gpt-3.5-turbo",
         "messages": [{"role": "user", "content": message}]
     }
 
     ### Create OpenAI headers object
     headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + open_ai_api_key
+      "Content-Type": "application/json"
     }
 
     ### Send the request
-    fetchedValue = await request(
-      open_ai_url,
-      "POST",
-      json.dumps(questionBody),
-      headers
+    fetchedValue = await requests.post(
+      url,
+      json=questionBody,
+      headers=headers
     )
 
     ### Parse the response
-    res = await fetchedValue.json()
+    res = fetchedValue.json()
 
     ### Get the completion
     answer = res["choices"][0]["message"]["content"]
@@ -65,39 +65,25 @@ async def openAiCompletion(message: str):
 async def cohereCompletion(message: str):
     ### Create Cohere request body
     questionBody = {
+        "cohere": True,
         "prompt": message
     }
 
     ### Create Cohere headers object
     headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + cohere_api_key
+      "Content-Type": "application/json"
     }
 
     ### Send the request
-    fetchedValue = await request(
-      cohere_url,
-      "POST",
-      json.dumps(questionBody),
-      headers
+    fetchedValue = await requests.post(
+      url,
+      json=questionBody,
+      headers=headers
     )
 
     ### Parse the response
-    res = await fetchedValue.json()
+    res = fetchedValue.json()
 
     ### Get the completion
     answer = res["generations"][0]["text"]
     return answer
-
-### HTTP Request Function
-async def request(url: str, method: str = "GET", body: Optional[str] = None,
-                  headers: Optional[dict[str, str]] = None, **fetch_kwargs: Any) -> FetchResponse:
-    kwargs = {"method": method, "mode": "cors"}
-    if body and method not in ["GET", "HEAD"]:
-        kwargs["body"] = body
-    if headers:
-        kwargs["headers"] = headers
-    kwargs.update(fetch_kwargs)
-
-    response = await pyfetch(url, **kwargs)
-    return response
