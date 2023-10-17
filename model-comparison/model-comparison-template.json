@@ -7,7 +7,10 @@
             "placeholder": "Write a prompt here",
             "isRequired": false,
             "showError": false,
-            "value": ""
+            "value": "",
+            "min": 0,
+            "invalid": false,
+            "max": 1024
         },
         {
             "type": "button",
@@ -30,7 +33,10 @@
                             "placeholder": "Placeholder",
                             "isRequired": false,
                             "showError": false,
-                            "value": ""
+                            "value": "",
+                            "min": 0,
+                            "invalid": false,
+                            "max": 1024
                         },
                         {
                             "type": "rating",
@@ -74,7 +80,10 @@
                             "placeholder": "Placeholder",
                             "isRequired": false,
                             "showError": false,
-                            "value": ""
+                            "value": "",
+                            "min": 0,
+                            "invalid": false,
+                            "max": 1024
                         },
                         {
                             "type": "rating",
