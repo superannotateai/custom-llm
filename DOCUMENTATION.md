@@ -17,7 +17,7 @@ TODO - UI builder structure<br>
 
 There are multiple components available in the UI builder. Each component on the UI should have its own unique ID. Initially the component is created with auto generated ID, but it is possible to change it to a more meaningful value.
 
-#### Group
+#### **`Group`**
 
 Group is a container component which allows to create multiple rows of itself. It is usefull for creating converation-like experiences where you need to have multiple rows of same type of components.
 
@@ -26,9 +26,51 @@ Parameters:
 - `Initially hidden` - checkbox. Is disabled by default. When enabled, one row of the group is created during the initialization stage of the editor.
 - `Removable` - checkbox. Is disabled by default. When enabled an `X` button will be added to each row of the group allowing to delete the row.
 
-<iframe src="https://llm.superannotate.com/editor?url=https:%2F%2Fgithub.com%2Fdavitbbb%2Fcustom-llm%2Fblob%2Fmain%2Fexamples%2Fgroup.json" ></iframe>
+[Try in Playground](https://llm.superannotate.com/editor?url=https:%2F%2Fgithub.com%2Fdavitbbb%2Fcustom-llm%2Fblob%2Fmain%2Fexamples%2Fgroup.json)
 
+#### **`Grid`**
 
+#### **`Tabs`**
+
+#### **`Button`**
+
+#### **`Text input`**
+
+#### **`Text area`**
+
+#### **`Number`**
+
+#### **`Code`**
+
+#### **`Paragraph`**
+
+#### **`Select`**
+
+#### **`Checkbox`**
+
+#### **`Radio`**
+
+#### **`Slider`**
+
+#### **`Voting`**
+
+#### **`Rating`**
+
+#### **`Date`**
+
+#### **`Time`**
+
+#### **`Image`**
+
+#### **`Video`**
+
+#### **`Audio`**
+
+#### **`Avatar`**
+
+#### **`CSV`**
+
+#### **`Web`**
 
 ## User Experience Builder
 
