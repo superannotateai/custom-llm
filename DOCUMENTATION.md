@@ -30,6 +30,15 @@ Parameters:
 
 #### **`Grid`**
 
+Grid is a container component which allows to horisontally arrange the content on the UI.
+
+Parameters:
+
+- `Resizable` - checkbox. Is disabled by default. When enabled, it is possible to resize the width of each column of the grid.
+- `Columns` - manipulation menu. Here you can add/remove columns set the horizontal sizes.
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https:%2F%2Fgithub.com%2Fdavitbbb%2Fcustom-llm%2Fblob%2Fmain%2Fexamples%2Fgrid.json)
+
 #### **`Tabs`**
 
 #### **`Button`**
