@@ -9,9 +9,7 @@ LLM Toolkit consist of three main parts:
 
 ## UI Builder
 
-<font color="red">
-TODO - UI builder structure<br>
-</font>
+<font color="red">TODO - UI builder structure<br></font>
 
 ### UI Components
 
@@ -26,7 +24,7 @@ Parameters:
 - `Initially hidden` - checkbox. Is disabled by default. When enabled, one row of the group is created during the initialization stage of the editor.
 - `Removable` - checkbox. Is disabled by default. When enabled an `X` button will be added to each row of the group allowing to delete the row.
 
-[Try in Playground](https://llm.superannotate.com/editor?url=https:%2F%2Fgithub.com%2Fdavitbbb%2Fcustom-llm%2Fblob%2Fmain%2Fexamples%2Fgroup.json)
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/group.json)
 
 #### **`Grid`**
 
@@ -37,7 +35,7 @@ Parameters:
 - `Resizable` - checkbox. Is disabled by default. When enabled, it is possible to resize the width of each column of the grid.
 - `Columns` - manipulation menu. Here you can add/remove columns set the horizontal sizes.
 
-[Try in Playground](https://llm.superannotate.com/editor?url=https:%2F%2Fgithub.com%2Fdavitbbb%2Fcustom-llm%2Fblob%2Fmain%2Fexamples%2Fgrid.json)
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/grid.json)
 
 #### **`Tabs`**
 
@@ -47,19 +45,86 @@ Parameters:
 
 - `Tabs` - manipulation menu. Here you can add, remove and rename tabs.
 
-[Try in Playground](https://llm.superannotate.com/editor?url=https:%2F%2Fgithub.com%2Fdavitbbb%2Fcustom-llm%2Fblob%2Fmain%2Fexamples%2Ftab.json)
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/tab.json)
 
 #### **`Button`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+
+- `Button Text` - text input indicating the button text
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/button.json)
+
 #### **`Text input`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+
+- `Placeholder` - text input indicating the placeholder
+- `Min length` - minimum text length to consider the input as valid
+- `Max length` - maximum text length to consider the input as valid
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Hide from form` - checkbox. Is disabled by default. When enabled, this component will be hidden on the main form. This option is useful when you want to store any data in the backgroud
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/text-input.json)
 
 #### **`Text area`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+
+- `Placeholder` - text input indicating the placeholder
+- `Min length` - minimum text length to consider the input as valid
+- `Max length` - maximum text length to consider the input as valid
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Hide from form` - checkbox. Is disabled by default. When enabled, this component will be hidden on the main form. This option is useful when you want to store any data in the backgroud
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/text-area.json)
+
+
 #### **`Number`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Placeholder` - text input indicating the placeholder
+- `Min length` - minimum text length to consider the input as valid
+- `Max length` - maximum text length to consider the input as valid
+- `Step` - step of the increment/decrement
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Hide from form` - checkbox. Is disabled by default. When enabled, this component will be hidden on the main form. This option is useful when you want to store any data in the backgroud
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/number.json)
+
 
 #### **`Code`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/code.json)
+
 #### **`Paragraph`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+
+- `Text` - the visible text of the paragraph
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/paragraph.json)
 
 #### **`Select`**
 
@@ -127,15 +192,15 @@ Now let’s write paths for each component in the UI:
 path = ['group_1']
 ```
 
-prompt of the first row of its parent group `group_1` (actually there is only one row of this group):
+`prompt` of the first row of its parent group `group_1` (actually there is only one row of this group):
 ```python
-path = ['group_1', 0, 'parent']
+path = ['group_1', 0, 'prompt']
 ```
 here 0 (`path[1]`) points to the first row of the `group_1`.
 
-comment of the second row of its parent group `group_2` (there are three rows of this group):
+`comment` of the second row of its parent group `group_2` (there are three rows of this group):
 ```python
-path = ['group_1', 0, 'parent', 1, 'comment']
+path = ['group_1', 0, 'group_2', 1, 'comment']
 ```
 here 0 (`path[1]`) points to the first row of the `group_1` and 1 (`path[3]`) points to the second row of the `group_2`.
 
