@@ -63,6 +63,7 @@ Parameters:
 
 Parameters:
 
+- `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
 - `Min length` - minimum text length to consider the input as valid
 - `Max length` - maximum text length to consider the input as valid
@@ -78,6 +79,7 @@ Parameters:
 
 Parameters:
 
+- `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
 - `Min length` - minimum text length to consider the input as valid
 - `Max length` - maximum text length to consider the input as valid
@@ -93,7 +95,7 @@ Parameters:
 <font color="red">TODO - Add description<br></font>
 
 Parameters:
-- `Placeholder` - text input indicating the placeholder
+- `Label` - text input indicating the label of thecomponent visible on the UI
 - `Min length` - minimum text length to consider the input as valid
 - `Max length` - maximum text length to consider the input as valid
 - `Step` - step of the increment/decrement
@@ -110,6 +112,7 @@ Parameters:
 
 Parameters:
 
+- `Label` - text input indicating the label of thecomponent visible on the UI
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 
@@ -121,6 +124,7 @@ Parameters:
 
 Parameters:
 
+- `Label` - text input indicating the label of thecomponent visible on the UI
 - `Text` - the visible text of the paragraph
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 
@@ -128,31 +132,188 @@ Parameters:
 
 #### **`Select`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Placeholder` - text input indicating the placeholder
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+- `Select type` - radio button. Specify if the select should be single or multi select.
+- `Options` - manipulation menu. Here you can add, remove and rename option. You can define a default value(s) as well
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/select.json)
+
+
 #### **`Checkbox`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Placeholder` - text input indicating the placeholder
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+- `Options` - manipulation menu. Here you can add, remove and rename option. You can define a default value(s) as well
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/checkbox.json)
+
 
 #### **`Radio`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Placeholder` - text input indicating the placeholder
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+- `Options` - manipulation menu. Here you can add, remove and rename option. You can define a default value(s) as well
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/checkbox.json)
+
+
 #### **`Slider`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Min value` - minimum value of the slider
+- `Max value` - maximum value of the slider
+- `Step` - step of the increment/decrement
+- `Suffix` - a suffix appended to the slider value popup
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+- `Slider Type` - radio button. Specify if the slider represents a single value or a range.
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/slider.json)
+
 
 #### **`Voting`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/voting.json)
+
+
 #### **`Rating`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Number of stars` - number of start of the rating
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/rating.json)
+
 
 #### **`Date`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `include time` - checkbox. Is disabled by default. When enabled time picker is visible
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/date_time.json)
+
+
 #### **`Time`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/date_time.json)
+
 
 #### **`Image`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Source URL` - URL of the image
+- `Alt text` - Alternate text
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/image.json)
+
+
 #### **`Video`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Source URL` - URL of the video
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/video.json)
+
 
 #### **`Audio`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Source URL` - URL of the audio
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/audio.json)
+
+
 #### **`Avatar`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Source URL` - URL of the avatar image
+- `Alt text` - Alternate text
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/avatar.json)
+
 
 #### **`CSV`**
 
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Label` - text input indicating the label of thecomponent visible on the UI
+- `Source URL` - URL of the avatar image
+- `Alt text` - Alternate text
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/csv.json)
+
+
 #### **`Web`**
+
+<font color="red">TODO - Add description<br></font>
+
+Parameters:
+- `Source` - there are two options to bring your web component: 1. source url, 2. code
+- `Height` - Height of the web component
+- `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/web.json)
+
 
 ## User Experience Builder
 
@@ -170,39 +331,26 @@ Each component is accessed through its own unique path. In case of components no
 ['component_id']
 ```
 
-In case a component placed within a group (or multiple groups), the component path is an array of parent group ids, group row indexes and it’s own id:
+In case a component placed within a group, the component path is an array of parent group id, group row index and it’s own id:
 
 ```python
 ['parent_group_id', <group_row_index>, 'component_id']
 ```
 
-**Example**. Let’s assume we have following UI:
+In case a component placed within a group hierarchy (`group_1 -> group_2 -> group_3`), the component path is an array of parent group ids, group row indexes and it’s own id:
 
-![Nested groups UI](https://public-static-files.superannotate.com/documentation/images/component_paths_1.png "Nested groups UI")
-
-Here we have a parent group *group_1*, in this group we have one text area *prompt*, another group *group_2* and in the *group_2* we have a text input *comment*. 
-Now let’s assume we have three rows of *group_2* in the editor (for more information about how to add rows of a specific group refer to the group component description <font color="red">TODO add a link</font>):
-
-![Nested groups UI on the editor](https://public-static-files.superannotate.com/documentation/images/component_paths_2.png "Nested groups UI on the editor")
-
-Now let’s write paths for each component in the UI:
-
-`group_1`:
 ```python
-path = ['group_1']
+['group_1', <group_1_row_index>, 'group_2', <group_2_row_index>, 'group_3', <group_3_row_index>, 'component_id']
 ```
 
-`prompt` of the first row of its parent group `group_1` (actually there is only one row of this group):
-```python
-path = ['group_1', 0, 'prompt']
-```
-here 0 (`path[1]`) points to the first row of the `group_1`.
+-1 index points to the last row of the group:
 
-`comment` of the second row of its parent group `group_2` (there are three rows of this group):
 ```python
-path = ['group_1', 0, 'group_2', 1, 'comment']
+['parent_group_id', -1, 'component_id']
 ```
-here 0 (`path[1]`) points to the first row of the `group_1` and 1 (`path[3]`) points to the second row of the `group_2`.
+
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/group-paths.json)
+
 
 ### Event Handlers
 
@@ -256,7 +404,7 @@ In the code editor you can use following custom functions:
 
 - `setValue(path: List[Union[str, int]], value)` - sets the value of the component by provided path. *For more information about componets and value types please refer to component describtion.*
 
-- `repeatRow(path: List[Union[str, int]])` - appends a row to the group by provided path. *For more information about group component structure please refer to component describtion.*
+- `repeatRow(path: List[Union[str, int]])` - appends a row to the group by provided path. This function return the path of newly created row. *For more information about group component structure please refer to component describtion.*
 
 - `deleteRow(path: List[Union[str, int]])` - deletes the row of the group specified by path. Here the path should include the row index. *For more information about group component structure please refer to component describtion.*
 
@@ -297,7 +445,7 @@ Example:
 ```Python
 import requests.asyncs as requests
 
-def on_submit_click(path: List[Union[str, int]]):
+def async on_submit_click(path: List[Union[str, int]]):
     response = await requests.request(
         url='https://your.domain.com/your/path',
         method ="GET",
