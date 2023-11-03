@@ -653,10 +653,8 @@ def on_submit_click(path: List[Union[str, int]]):
         headers = None
     )
 
-    ### Get response as a JSON object
-    response.json()
-
-    return
+    ### Return response as a JSON object
+    return response.json()
 ```
 
 There is one important thing you need to remember while using this module - all the methods are asyncrounous, meaning during the execution the UI will be blocked, therefore use it only with cases where http requests are fast enough. To use asyncronous functionality you can use `asyncs` sub module and add `await` to the function call to make it async.
@@ -666,19 +664,18 @@ Example:
 ```Python
 import requests.asyncs as requests
 
-def async on_submit_click(path: List[Union[str, int]]):
+async def on_submit_click(path: List[Union[str, int]]):
     response = await requests.request(
         url='https://your.domain.com/your/path',
         method ="GET",
         headers = None
     )
 
-    ### Get response as a JSON object
-    response.json()
-
-    return
+    ### Return response as a JSON object
+    return response.json()
 ```
 
+[Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/request.json)
 
 ### Environment Variables
 
