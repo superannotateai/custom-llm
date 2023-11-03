@@ -593,6 +593,8 @@ path - the path of the trigger component
 value - received message from the trigger component
 - Group row deleted event - ```event type = deleted```, this event is fired when a row in a group is being deleted by pressing `X` button. The handler function receives one argument:
 path - the path of the trigger row
+- ```pre_hook()``` - fired when an item is being opened from the editor
+- ```post_hook()``` - fired when an item is being cloded from the editor
 
 Example:
 ```python
