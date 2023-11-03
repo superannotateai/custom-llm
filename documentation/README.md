@@ -19,10 +19,22 @@ There are multiple components available in the UI builder. Each component on the
 
 Group is a container component which allows to create multiple rows of itself. It is usefull for creating converation-like experiences where you need to have multiple rows of same type of components.
 
-Parameters:
+##### Parameters
 
 - `Initially hidden` - checkbox. Is disabled by default. When enabled, one row of the group is created during the initialization stage of the editor.
 - `Removable` - checkbox. Is disabled by default. When enabled an `X` button will be added to each row of the group allowing to delete the row.
+
+##### Related Functions
+
+- `repeatRow(path: List[Union[str, int]])` - appends a row to the group, returns the path of the newly created row
+- `deleteRow(path: List[Union[str, int]])` - deletes the row of the group, specified by the row index in the `path`
+- `getGroupLength(path: List[Union[str, int]])` - returns the length of the group (the number of rows)
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]]):` - fired when a group row is deleted by user by prssing `X` button, receives the path of the newly deleted row.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/group.json)
 
@@ -30,10 +42,12 @@ Parameters:
 
 Grid is a container component which allows to horisontally arrange the content on the UI.
 
-Parameters:
+##### Parameters
 
 - `Resizable` - checkbox. Is disabled by default. When enabled, it is possible to resize the width of each column of the grid.
 - `Columns` - manipulation menu. Here you can add/remove columns set the horizontal sizes.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/grid.json)
 
@@ -41,9 +55,11 @@ Parameters:
 
 Tab is a container component which allows to easyly organize your experience in more structured way. The content of the tab is visible only when it is selected as active.
 
-Parameters:
+##### Parameters
 
 - `Tabs` - manipulation menu. Here you can add, remove and rename tabs.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/tab.json)
 
@@ -51,17 +67,24 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 
 - `Button Text` - text input indicating the button text
 
+##### Related Events
+
+- `on_<component id>click(path: List[Union[str, int]]):` - fired when the button is clicked.
+
+<font color="red">TODO - add a gif<br></font>
+
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/button.json)
+
 
 #### **`Text input`**
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
@@ -70,6 +93,17 @@ Parameters:
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Hide from form` - checkbox. Is disabled by default. When enabled, this component will be hidden on the main form. This option is useful when you want to store any data in the backgroud
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when text value is changed by user, receives component path and the text value.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/text-input.json)
 
@@ -77,7 +111,7 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
@@ -86,6 +120,17 @@ Parameters:
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Hide from form` - checkbox. Is disabled by default. When enabled, this component will be hidden on the main form. This option is useful when you want to store any data in the backgroud
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when text value is changed by user, receives component path and the text value.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/text-area.json)
 
@@ -94,7 +139,7 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Min length` - minimum text length to consider the input as valid
 - `Max length` - maximum text length to consider the input as valid
@@ -103,6 +148,17 @@ Parameters:
 - `Hide from form` - checkbox. Is disabled by default. When enabled, this component will be hidden on the main form. This option is useful when you want to store any data in the backgroud
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: Union[int, float])` - sets the data of the component
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: Union[int, float]):` - fired when number value is changed by user, receives component path and the number value.
+
+<font color="red">TODO - add a gif<br></font>
+
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/number.json)
 
 
@@ -110,11 +166,22 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when code value is changed by user, receives component path and the code value.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/code.json)
 
@@ -122,11 +189,18 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Text` - the visible text of the paragraph
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value)` - sets the data of the component
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/paragraph.json)
 
@@ -134,13 +208,24 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 - `Select type` - radio button. Specify if the select should be single or multi select.
 - `Options` - manipulation menu. Here you can add, remove and rename option. You can define a default value(s) as well
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value)` - sets the data of the component, for single-select `value: str`, for multi-select `value: List[str]`
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value):` - fired when checkbox value is changed by user, receives component path and the checkbox value. For single-select `value: str`, for multi-select `value: List[str]`.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/select.json)
 
@@ -149,12 +234,24 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
+
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 - `Options` - manipulation menu. Here you can add, remove and rename option. You can define a default value(s) as well
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: List[str])` - sets the data of the component
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: List[str]):` - fired when checkbox value is changed by user, receives component path and the checkbox value
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/checkbox.json)
 
@@ -163,12 +260,23 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Placeholder` - text input indicating the placeholder
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 - `Options` - manipulation menu. Here you can add, remove and rename option. You can define a default value(s) as well
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when radio value is changed by user, receives component path and the radio value
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/checkbox.json)
 
@@ -177,7 +285,7 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Min value` - minimum value of the slider
 - `Max value` - maximum value of the slider
@@ -187,6 +295,17 @@ Parameters:
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 - `Slider Type` - radio button. Specify if the slider represents a single value or a range.
 
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: Union[int, float])` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: Union[int, float]):` - fired when slider value is changed by user, receives component path and the slider value
+
+<font color="red">TODO - add a gif<br></font>
+
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/slider.json)
 
 
@@ -194,10 +313,21 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: int)` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: int):` - fired when voting value is changed by user, receives component path and the voting value - `0` or `1`
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/voting.json)
 
@@ -206,11 +336,22 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Number of stars` - number of start of the rating
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: int)` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: int):` - fired when rating value is changed by user, receives component path and the rating.
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/rating.json)
 
@@ -219,11 +360,22 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `include time` - checkbox. Is disabled by default. When enabled time picker is visible
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when date/time value is changed by user, receives component path and the date/time value
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/date_time.json)
 
@@ -232,10 +384,21 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Required` - checkbox. Is disabled by default. When enabled, input is considered invalid when there is no text (it is impossible to complete items with invalid inputs)
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when time value is changed by user, receives component path and the time value
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/date_time.json)
 
@@ -244,11 +407,18 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Source URL` - URL of the image
 - `Alt text` - Alternate text
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the url of the image component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the url of the image component 
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/image.json)
 
@@ -257,10 +427,17 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Source URL` - URL of the video
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the url of the video component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the url of the video component
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/video.json)
 
@@ -269,10 +446,17 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Source URL` - URL of the audio
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the url of the audio component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the url of the audio component
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/audio.json)
 
@@ -281,11 +465,19 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
+
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Source URL` - URL of the avatar image
 - `Alt text` - Alternate text
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the url of the avatar component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the url of the avatar component 
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/avatar.json)
 
@@ -294,11 +486,22 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters:
 - `Label` - text input indicating the label of thecomponent visible on the UI
 - `Source URL` - URL of the avatar image
 - `Alt text` - Alternate text
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
+
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the data of the component
+- `setValue(path: List[Union[str, int]], value: str)` - sets the data of the component 
+
+##### Related Events
+
+- `on_<component id>change(path: List[Union[str, int]], value: str):` - fired when there is a change in csv data of the component, receives component path and the csv content
+
+<font color="red">TODO - add a gif<br></font>
 
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/csv.json)
 
@@ -307,12 +510,30 @@ Parameters:
 
 <font color="red">TODO - Add description<br></font>
 
-Parameters:
+##### Parameters
+
 - `Source` - there are two options to bring your web component: 1. source url, 2. code
 - `Height` - Height of the web component
 - `Exclude from annotation` - checkbox. Is disabled by default. When enabled, the value of the component will be excluded from annotation export package
 
+##### Related Functions
+
+- `getValue(path: List[Union[str, int]])` - returns the code source url or the code itself based on the web component configuration
+- `setValue(path: List[Union[str, int]], value: str)` - set the code source url or the code itself based on the web component configuration
+- `postMessageToWebComponent(path: List[Union[str, int]], message: Union[str, dict])` - sends the `message` string to the web component
+
+##### Related Events
+
+- `on_<component id>_message(path: List[Union[str, int]], value: Union[str, dict]):` - fired when there is a message from web component, receives component path and the value of the incoming message
+
+##### Sending messages from web component
+
+- `window.parent.postMessage({ action: 'topy', data }, "*");` - from the JavaScrips use this function to send a message to the main editor. Use `topy` as an action identifier.
+
+<font color="red">TODO - add a gif<br></font>
+
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/web.json)
+
 
 
 ## User Experience Builder
