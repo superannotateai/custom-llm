@@ -3,8 +3,8 @@
 SuperAnnotate's LLM Toolkit is a web based, low-code application integrated into the SuperAnnotate platform. It allows users to create and manage rich web interfaces for data manipulation, which is needed for cases such as high quality LLM fine-tuning, prompt engineering, testing, etc.
 
 The LLM Toolkit consists of three main parts:
-1. [No-code user interface builder](#ui-builder)
-2. [Python-based user experience builder](#code-editor)
+1. [UI Builder](#ui-builder)
+2. [Code Editor](#code-editor)
 3. [Integration with the SuperAnnotate platform](#integration-with-the-superannotate-platform)
 
 ## UI Builder
