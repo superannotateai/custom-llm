@@ -13,7 +13,7 @@ This is the builder that you'll use to create your LLMs and GenAI form. The buil
 
 ### UI Components
 
-There are multiple components available in the UI builder. Each component on the UI should have its own unique ID. Initially the component is created with an auto-generated ID, but it is possible to change it to a more defining value.
+There are multiple components available in the UI builder. Each component on the UI should have its own unique ID that is auto-generated, but can be changed to a more defining value.
 
 #### **`Group`**
 
@@ -557,11 +557,11 @@ This component allows you to display editable CSV grids in your forms.
 [Try in Playground](https://llm.superannotate.com/editor?url=https://github.com/superannotateai/custom-llm/blob/main/documentation/examples/csv.json)
 
 
-## User Experience Builder
-
-In the User Experience Builder, you can define the functionality behind your form. On the lefthand side, you can see your form preview and your variables, and on the righthand side you can see the Code editor. There, you can input custom code and call custom variables so that your form can function the way you need it to.
-
 ## Code Editor
+
+In the **Code Editor**, you can define the functionality behind your form. On the lefthand side, you can see your form preview and your variables, and on the righthand side you can see the editor. There, you can input custom code and call custom variables so that your form can function the way you need it to.
+
+## Using the editor
 
 This is your code editor. Using Python, you can customize your form's code extensively to produce the functionality you want. Based on the components you chose in the **UI builder**, their layout and their individual property values and settings, the builder will automatically generate a base code structure that outlines your form. You can use this and build on it as you like by manipulating the existing code or using any of your custom variables.
 
@@ -712,7 +712,7 @@ async def on_submit_click(path: List[Union[str, int]]):
 
 ## Environment Variables
 
-In the variables tab, you can define as many custom variables as you need that can then be used in the code editor. 
+In the **Variables** tab, you can define as many custom variables as you need that can then be used in the code editor. 
 
 To add a new variable:
 
