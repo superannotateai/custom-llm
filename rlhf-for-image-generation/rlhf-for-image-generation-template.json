@@ -107,7 +107,7 @@
                             "type": "image",
                             "id": "img1",
                             "label": "Image",
-                            "value": "/assets/placeholder.png",
+                            "value": "",
                             "alt": ""
                         },
                         {
@@ -127,7 +127,7 @@
                             "type": "image",
                             "id": "img2",
                             "label": "Image",
-                            "value": "/assets/placeholder.png",
+                            "value": "",
                             "alt": ""
                         },
                         {
@@ -147,7 +147,7 @@
                             "type": "image",
                             "id": "img3",
                             "label": "Image",
-                            "value": "/assets/placeholder.png",
+                            "value": "",
                             "alt": ""
                         },
                         {
@@ -167,7 +167,7 @@
                             "type": "image",
                             "id": "img4",
                             "label": "Image",
-                            "value": "/assets/placeholder.png",
+                            "value": "",
                             "alt": ""
                         },
                         {
